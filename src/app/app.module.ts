@@ -7,7 +7,31 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { NotesComponent } from './notes/notes.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { Router, Routes}
+import {Router, RouterModule, Routes} from '@angular/router';
+
+
+
+const appRoutes: Routes = [
+  {
+    path: 'notes',
+    component: NotesComponent
+  },
+  {
+    path: 'feedback',
+    component: FeedbackComponent
+  },
+  {
+    path: '',
+    component: NotesComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
+  }
+];
+
+
 
 @NgModule({
   declarations: [
@@ -19,9 +43,28 @@ import { Router, Routes}
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

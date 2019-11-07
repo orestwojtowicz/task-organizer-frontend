@@ -1,10 +1,18 @@
 export interface Notebook {
 
 
-  id:number;
+  id:string;
   name:string;
-  nbOfNotes:number;
+  nbNotes:number;
 
 
 
 }
+
+/*
+
+private String id;
+@NotNull
+private String name;
+private int nbNotes;
+*/

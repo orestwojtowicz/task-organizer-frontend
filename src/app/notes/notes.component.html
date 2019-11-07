@@ -1,1 +1,41 @@
-<p>notes works!</p>
+
+
+<div>
+  <input type="text"
+         placeholder="Search notes..."
+  />
+</div>
+
+<div>
+  <button type="button"
+          (click)="createNotebook()"
+        >
+    <i class="fa fa-plus">New notebook</i>
+
+
+  </button>
+  <button type="button">
+    <i class="fa fa-plus">New note</i>
+  </button>
+</div>
+
+
+<!-- NOTE CONTENT  -->
+
+  <div >
+    <!-- NOTEBOOKS MENU  -->
+  <a *ngFor="let notebook of notebooks">
+    <i class="fa fa-book"></i>&nbsp;
+    <i class="fa fa-trash-o" (click)="deleteNotebook(notebook)"></i>
+    <input [(ngModel)]="notebook.name" (change)="updateNotebook(notebook)">
+
+  </a>
+
+
+  </div>
+<div>
+  <!-- NOTES PANEL  -->
+
+
+
+</div>

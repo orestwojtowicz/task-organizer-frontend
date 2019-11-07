@@ -1,41 +1,37 @@
 
 
-<div>
+<div class="text-search">
   <input type="text"
-         placeholder="Search notes..."
-  />
+         placeholder="Search notes..."/>
 </div>
 
-<div>
-  <button type="button"
-          (click)="createNotebook()"
-        >
-    <i class="fa fa-plus">New notebook</i>
+<div class="button-container">
+  <button type="button" id="notebook-button"
+          (click)="createNotebook()">
 
-
+    <i class="fa fa-plus">Notebook</i>
   </button>
-  <button type="button">
-    <i class="fa fa-plus">New note</i>
+  <button type="button" id="note-button">
+    <i class="fa fa-plus">Note</i>
   </button>
 </div>
 
 
 <!-- NOTE CONTENT  -->
 
-  <div >
-    <!-- NOTEBOOKS MENU  -->
-  <a *ngFor="let notebook of notebooks">
-    <i class="fa fa-book"></i>&nbsp;
+
+<div class="notebooks-list">
+  <h2>Notebooks</h2>
+  <ul *ngFor="let notebook of notebooks">
+    <i class="fa fa-book"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <i class="fa fa-trash-o" (click)="deleteNotebook(notebook)"></i>
     <input [(ngModel)]="notebook.name" (change)="updateNotebook(notebook)">
-
-  </a>
-
+   </ul>
+</div>
+ <div>
 
   </div>
 <div>
   <!-- NOTES PANEL  -->
-
-
 
 </div>

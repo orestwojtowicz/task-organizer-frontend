@@ -1,0 +1,106 @@
+
+
+
+.text-search {
+  margin: 50px 0 20px 0;
+  border: none;
+  outline: none;
+
+}
+
+
+
+input {
+  outline: none;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid #fca22b;;
+}
+
+.button-container {
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  float: left;
+
+
+}
+
+button {
+  margin: 0 20px 0 0;
+  padding: 10px;
+  width:120px;
+  height:50px;
+  text-align:center;
+  background-color: transparent;
+  outline: none;
+  border-style: none;
+
+}
+
+#notebook-button {
+  color: #ff670f;
+}
+
+#note-button {
+  color: #ff670f;
+}
+
+div {
+  width: 200px;
+}
+
+h2 {
+  font: 400 40px/1.5 Helvetica, Verdana, sans-serif;
+  margin: 50px 0 50px 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+  position: relative;
+}
+
+
+.notebooks-list ul > i {
+   color: red;
+   position: absolute;
+
+
+}
+.notebooks-list ul > i:hover {
+  font-size: 30px;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+
+
+
+input:hover {
+  font-size: 20px;
+  background: transparent;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+  border-bottom: none;
+}
+/* color: #fca22b;  color: #ff670f; */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -3,63 +3,63 @@
 
 
 
-<div class="container">
 
 
 
-<form name="form" #f="ngForm" (submit)="f.form.valid && sendFeedback()">
 
-  <div>
-    <label for="name"></label>
-    <input type="text" name="name" id="name" placeholder="Your name"
-           [(ngModel)]="model.name"
-           #name="ngModel"
-           [ngClass]="{ 'submitted': f.submitted && name.invalid }"
-           required>
-    <!-- Individual validation group -->
-    <div *ngIf="f.submitted && name.invalid" class="invalid-input">
-      <!-- Individual validation errors -->
-          <div *ngIf="name.errors?.required">Name is not valid</div>
+<form class="animated bounceInLeft" name="form" #f="ngForm" (submit)="f.form.valid && sendFeedback()">
+
+  <h1>Send email with feedback :)</h1>
+  <div class="contact-form">
+    <div class="txtb">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" placeholder="Your name"
+             [(ngModel)]="model.name"
+             #name="ngModel"
+             [ngClass]="{ 'submitted': f.submitted && name.invalid }"
+             required>
     </div>
 
-  </div>
-  <div>
-    <label for="email"></label>
-    <input type="text" name="name" id="email" placeholder="Your email"
-           [(ngModel)]="model.email"
-            #email="ngModel"
-           [ngClass]="{ 'submitted': f.submitted && name.invalid }"
-           required email
-    />
-    <!-- Individual validation group -->
+    <!-- NAME VALIDATION -->
+    <div *ngIf="f.submitted && name.invalid" class="invalid-input">
+      <div *ngIf="name.errors?.required">Name is empty</div>
+    </div>
+    <!-- NAME VALIDATION END -->
+    <div class="txtb">
+
+      <label>Email</label>
+      <input type="text" name="name" id="email" placeholder="Your email"
+             [(ngModel)]="model.email"
+             #email="ngModel"
+             [ngClass]="{ 'submitted': f.submitted && email.invalid }"
+             required email/>
+        </div>
+
+    <!-- EMAIL VALIDATION -->
     <div *ngIf="f.submitted && email.invalid" class="invalid-input">
-      <!-- Individual validation errors -->
       <div *ngIf="email.errors?.required">Field is required*</div>
       <div *ngIf="email.errors?.email">Wrong email format</div>
-
     </div>
-  </div>
-  <div>
+    <!-- EMAIL VALIDATION END -->
 
-    <div>
+    <!-- TEXTAREA VALIDATION -->
+    <div class="txtb">
+      <label>Message</label>
       <textarea type="text" placeholder="Nice Feedback" cols="30" rows="5" id="feedback" name="feedback"
                 [(ngModel)]="model.content"
                 #textAreaElement="ngModel"
                 [ngClass]="{ 'bigos': f.submitted && textAreaElement.invalid}"
-                required minlength="10"
-      ></textarea>
-      <!-- Individual validation group -->
-      <div *ngIf="f.submitted && textAreaElement.invalid" class="invalid-input">
-        <!-- Individual validation errors -->
-        <div *ngIf="textAreaElement.errors?.required">Message size must be greater than 10 characters</div>
-        <div *ngIf="textAreaElement.errors?.minlength">Field is < 10 characters</div>
-
-
-      </div>
+                required minlength="10"></textarea>
     </div>
+    <div *ngIf="f.submitted && textAreaElement.invalid" class="invalid-input">
+      <div *ngIf="textAreaElement.errors?.required">Message size must be greater than 10 characters</div>
+      <div *ngIf="textAreaElement.errors?.minlength">Field is < 10 characters</div>
+    </div>
+    <!-- TEXTAREA VALIDATION END -->
+    <button type="submit" (submit)="sendFeedback()" class="button">Send</button>
   </div>
-  <button class="btn btn-primary" (submit)="sendFeedback()">Send feedback</button>
+
 </form>
 
-</div>
+
 

@@ -1,1 +1,33 @@
-<p>feedback works!</p>
+
+
+
+
+
+<div class="container">
+
+
+
+<form name="form" #f="ngForm" (submit)="sendFeedback()">
+
+  <div>
+    <label for="name"></label>
+    <input type="text" name="name" id="name" placeholder="Your name"
+           [(ngModel)]="model.name">
+  </div>
+  <div>
+    <label for="email"></label>
+    <input type="text" name="name" id="email" placeholder="Your email"
+           [(ngModel)]="model.email">
+  </div>
+  <div>
+
+    <div>
+      <textarea type="text" placeholder="Nice Feedback" cols="30" rows="5" id="feedback" name="feedback"
+                [(ngModel)]="model.content"></textarea>
+    </div>
+  </div>
+  <button class="btn btn-primary" (submit)="sendFeedback()">Send feedback</button>
+</form>
+
+</div>
+

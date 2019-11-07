@@ -1,0 +1,73 @@
+
+
+.container {
+  margin-top: 100px;
+  border: 1px solid red;
+
+}
+
+.container input {
+  display: block;
+  margin: 0 auto;
+}
+
+.container > div {
+
+  margin-top: 30px;
+}
+
+
+textarea {
+
+  display: block;
+  margin: 0 auto;
+  outline: none;
+  resize: none;
+  overflow: auto;
+
+}
+
+button {
+  margin-top: 30px;
+
+}
+
+
+@media screen and (max-width: 430px) {
+
+  .container > div{
+    width: 50%;
+
+  }
+  .container input {
+    width: 90%;
+    margin-left: 50px;
+  }
+  textarea {
+    width: 120%;
+    margin-left: 30px;
+    font-size: 10px;
+  }
+
+
+  input[type=text] {
+    font-size: 10px;
+  }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

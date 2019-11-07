@@ -1,5 +1,20 @@
 
 
+.invalid-input {
+  color: red;
+}
+
+input.submitted
+{
+  border:1px solid #f00;
+}
+
+.bigos {
+  border:1px solid #f00;
+}
+
+
+
 .container {
   margin-top: 100px;
   border: 1px solid red;

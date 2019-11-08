@@ -49,7 +49,11 @@
 
 <div class="note-wrapper">
 
-  <app-note *ngFor="let note of notes" [note]="note"></app-note>
+  <app-note *ngFor="let note of notes" [note]="note"
+            (noteDeleted)="deleteNote($event)"
+            (noteUpdated)="updateNote(note)">
+
+  </app-note>
 
 
 
@@ -57,7 +61,11 @@
 
 
 
+<!--
+w child komponencie robimy Event emitera i tutaj tej metodzie z child komponentu przypisuje
+metode z obecnego komponentu i jako $event przesylam note
 
+ -->
 
 
 

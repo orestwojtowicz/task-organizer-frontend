@@ -1,0 +1,22 @@
+<div class="note note--1">
+
+  <div>
+    <input [(ngModel)]="note.title"
+           (change)="updateNote()"
+           type="text"
+           maxlength="10"
+    />
+    <a (click)="deleteNote()">
+      <i class="fa fa-trash-o"></i>
+    </a>
+  </div>
+  <div>
+          <textarea [(ngModel)]="note.text"
+                    (change)="updateNote()">
+          </textarea>
+  </div>
+  <div class="date">
+    {{note.lastModif}}
+  </div>
+
+</div>

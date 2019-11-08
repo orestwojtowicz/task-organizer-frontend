@@ -48,28 +48,9 @@
 <!-- NOTE CARDS-->
 
 <div class="note-wrapper">
-  <div class="note note--1"
-       *ngFor="let note of notes">
-    <div>
-      <input [(ngModel)]="note.title"
-             (change)="updateNote(note)"
-             type="text"
-             maxlength="10"
-      />
-      <a (click)="deleteNote(note)">
-        <i class="fa fa-trash-o"></i>
-      </a>
-    </div>
-    <div>
-          <textarea [(ngModel)]="note.text"
-                    (change)="updateNote(note)">
-          </textarea>
-          </div>
-    <div class="date">
-      {{note.lastModif}}
-    </div>
 
-  </div>
+  <app-note *ngFor="let note of notes" [note]="note"></app-note>
+
 
 
 </div>

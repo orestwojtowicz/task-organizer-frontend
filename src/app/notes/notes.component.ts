@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Notebook} from './model/notebook';
+import {Notebook, Notes} from './model/notebook';
 import {ApiService} from '../shared/services/api.service';
+import {NotesServiceService} from '../shared/services/notes-service.service';
 
 @Component({
   selector: 'app-notes',
@@ -10,14 +11,29 @@ import {ApiService} from '../shared/services/api.service';
 })
 export class NotesComponent implements OnInit {
 
-  notebooks: Notebook[]; // tutaj sa wszystkie notebooks z bazy danych
+  notebooks: Notebook[] = []; // tutaj sa wszystkie notebooks z bazy danych
 
-  constructor(private apiService: ApiService) { }
+  notes: Notes[] = [];// all notes from database
+
+  constructor(private apiService: ApiService, private noteService: NotesServiceService) { }
 
   ngOnInit() {
     this.getAllNotebooks();
-    console.log('ALL NOTES ' + this.getAllNotebooks());
+    this.getAllNotes();
+    console.log('ALL NOTEBOOKS ' + this.getAllNotebooks());
+    console.log('ALL NOTES ' + this.getAllNotes());
   }
+
+  public getAllNotes() {
+    this.noteService.getAllNotes().subscribe(
+      res => {
+         this.notes = res;
+      }, error => {
+        alert("Error fetching data")
+      }
+    );
+  }
+
 
   public getAllNotebooks() {
   this.apiService.getAllNotebooks().subscribe(

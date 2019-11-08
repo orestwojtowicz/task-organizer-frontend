@@ -1,25 +1,75 @@
 
 
-<div class="text-search">
-  <input type="text"
-         placeholder="Search notes..."/>
-</div>
-
-<div class="button-container">
-  <button type="button" id="notebook-button"
-          (click)="createNotebook()">
-
-    <i class="fa fa-plus">Notebook</i>
-  </button>
-  <button type="button" id="note-button">
-    <i class="fa fa-plus">Note</i>
-  </button>
-</div>
 
 
 <!-- NOTE CONTENT  -->
 
+<div class="grid-wrapper">
 
+
+  <div class="text-search">
+    <input type="text"
+           placeholder="Search notes..."/>
+  </div>
+
+  <div class="button-container">
+    <button type="button" id="notebook-button"
+            (click)="createNotebook()">
+      <i class="fa fa-plus">Notebook</i>
+
+    </button>
+    <button type="button" id="note-button">
+      <i class="fa fa-plus">Note</i>
+    </button>
+  </div>
+
+  <div class="notebooks-list">
+    <h2>Notebooks</h2>
+    <ul *ngFor="let notebook of notebooks">
+      <i class="fa fa-book"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <i class="fa fa-trash-o" (click)="deleteNotebook(notebook)"></i>
+      <input [(ngModel)]="notebook.name" (change)="updateNotebook(notebook)">
+    </ul>
+  </div>
+  <div>
+</div>
+
+
+
+
+<!--
+<div class="notebooks-list">
+  <h2>Notebooks</h2>
+  <ul *ngFor="let notebook of notebooks">
+    <i class="fa fa-book"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <i class="fa fa-trash-o" (click)="deleteNotebook(notebook)"></i>
+    <input [(ngModel)]="notebook.name" (change)="updateNotebook(notebook)">
+  </ul>
+</div>
+<div>
+
+</div>
+<div>
+  &lt;!&ndash; NOTES PANEL  &ndash;&gt;
+  <div>
+    <p *ngIf="this.notes.length === 0">There are no notes to display in this notebook :(</p>
+  </div>
+
+  <h2>All Notes</h2>
+  <ul *ngFor="let note of notes">
+    <li>
+      <a>{{note.text}}</a>
+      <a>{{note.lastModif}}</a>
+      <a>{{note.title}}</a>
+    </li>
+  </ul>
+</div>-->
+
+
+
+<!-- NOTE CONTENT  -->
+
+<!--
 <div class="notebooks-list">
   <h2>Notebooks</h2>
   <ul *ngFor="let notebook of notebooks">
@@ -28,10 +78,54 @@
     <input [(ngModel)]="notebook.name" (change)="updateNotebook(notebook)">
    </ul>
 </div>
- <div>
+-->
 
+  <!-- IF NO NOTES MESSAGE -->
+  <!--<div>
+    <p *ngIf="this.notes.length === 0">There are no notes to display in this notebook :(</p>
   </div>
-<div>
-  <!-- NOTES PANEL  -->
 
-</div>
+  <h2>All Notes</h2>
+  <ul *ngFor="let note of notes">
+    <li>
+      <a>{{note.text}}</a>
+      <a>{{note.lastModif}}</a>
+      <a>{{note.title}}</a>
+    </li>
+  </ul>
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,6 +20,8 @@ export class ApiService {
 
   }
 
+
+
   getAllNotebooks() : Observable<Notebook[]> {
     console.log('URL ' + this.ALL_NOTEBOOKS);
       return this.http.get<Notebook[]>(this.ALL_NOTEBOOKS);

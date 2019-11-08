@@ -5,7 +5,9 @@
 
   <div class="text-search">
     <input type="text"
-           placeholder="Search notes..."/>
+           placeholder="Search notes..."
+           [(ngModel)]="searchText"
+          />
   </div>
 
   <div class="button-container">
@@ -49,7 +51,7 @@
 
 <div class="note-wrapper">
 
-  <app-note *ngFor="let note of notes" [note]="note"
+  <app-note *ngFor="let note of notes | noteTextFilter: searchText" [note]="note"
             (noteDeleted)="deleteNote($event)"
             (noteUpdated)="updateNote(note)">
 

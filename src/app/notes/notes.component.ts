@@ -19,6 +19,9 @@ export class NotesComponent implements OnInit {
   selectedNotebook: Notebook; //
 
 
+  searchText: string;
+
+
   constructor(private apiService: ApiService, private noteService: NotesServiceService) { }
 
   ngOnInit() {

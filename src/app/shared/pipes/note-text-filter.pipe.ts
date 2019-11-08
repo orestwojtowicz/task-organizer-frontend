@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {Notes} from '../notes/model/notebook';
+import {Notes} from '../../notes/model/notebook';
 
 @Pipe({
   name: 'noteTextFilter'
@@ -13,6 +13,10 @@ export class NoteTextFilterPipe implements PipeTransform {
     return notes.filter(n => n.title.includes(text) || n.text.includes(text));
     // filtruje bo dwoch zmiennych title notatki i zawartosc
   }
+
+
+
+
 
 }
 

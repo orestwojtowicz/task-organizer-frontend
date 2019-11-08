@@ -13,12 +13,3 @@ export interface Notes {
   notebookId:String;
   lastModif:Date;
 }
-
-
-/*
-
-private String id;
-@NotNull
-private String name;
-private int nbNotes;
-*/

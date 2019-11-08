@@ -15,13 +15,19 @@ export class NotesComponent implements OnInit {
 
   notes: Notes[] = [];// all notes from database
 
+
+  selectedNotebook: Notebook; //
+
+
   constructor(private apiService: ApiService, private noteService: NotesServiceService) { }
 
   ngOnInit() {
     this.getAllNotebooks();
     this.getAllNotes();
-    console.log('ALL NOTEBOOKS ' + this.getAllNotebooks());
-    console.log('ALL NOTES ' + this.getAllNotes());
+
+
+
+
   }
 
   public getAllNotes() {
@@ -39,6 +45,7 @@ export class NotesComponent implements OnInit {
   this.apiService.getAllNotebooks().subscribe(
     res => {
       this.notebooks = res;
+
 
     },
     error => {
@@ -94,6 +101,73 @@ export class NotesComponent implements OnInit {
           );
       }
   }
+
+  deleteNote(note: Notes) {
+    if (confirm("Are you sure you want to delete this note?")) {
+        this.noteService.deleteNote(note.id).subscribe(
+          res => {
+              let indexOfNote = this.notes.indexOf(note);
+              this.notes.splice(indexOfNote, 1);
+          },
+          error => {
+            alert('error while deleting ');
+          }
+        );
+    }
+
+
+  }
+
+  createNote(notebookId: string) {
+      let newNote: Notes = {
+        id: null,
+        title: "New Note",
+        text: "Write some text in here",
+        lastModif: null,
+        notebookId: notebookId
+      };
+      this.noteService.saveNote(newNote).subscribe(
+          res => {
+            newNote.id = res.id;
+            this.notes.push(newNote);
+          },
+        error => {
+            alert("Error occured while saving the note");
+        }
+      );
+  }
+
+
+  selectNotebook(notebook: Notebook) {
+    this.selectedNotebook = notebook; // ze jak klikne na Notebooka w menu to wybierze nam jego
+    this.noteService.getNotesByNotebook(notebook.id).subscribe(
+      res => {
+       this.notes = res;
+      },
+      error => {
+        alert("Error while getting all notes :(")
+      }
+    );
+  }
+
+
+  updateNote(updateNote: Notes) {
+
+    this.noteService.saveNote(updateNote).subscribe(
+        res => {
+
+        },
+      error => {
+          alert("Something is wrongg");
+      }
+    );
+  }
+
+
+
+
+
+
 }
 
 

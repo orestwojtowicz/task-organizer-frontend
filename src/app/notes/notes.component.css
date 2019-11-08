@@ -9,7 +9,7 @@ input {
   background: transparent;
   border-bottom: 1px solid #fca22b;;
 }
-button {
+/*button {
   margin: 0 20px 0 0;
   padding: 10px;
   width:120px;
@@ -25,16 +25,17 @@ button {
 
 #note-button {
   color: #ff670f;
-}
+
+}*/
 .notebooks-list ul > i {
   color: red;
 
 }
 
-.notebooks-list ul > i:hover {
+/*.notebooks-list ul > i:hover {
   font-size: 30px;
   transition: font-size 0.3s ease, background-color 0.3s ease;
-}
+}*/
 
 
 
@@ -63,6 +64,53 @@ button {
     width: 50%;
   }
 }
+
+
+.note-wrapper {
+
+  display: grid;
+  grid-auto-rows: minmax(200px, auto);
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+
+
+}
+
+
+.note {
+  border: 1px solid red;
+  background-color: #ffdddd;
+
+}
+
+textarea {
+  background-color: transparent;
+  border:none;
+  outline: none;
+  min-width: 50px;
+  min-height: 60px;
+  max-height: 140px;
+
+}
+
+.date {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

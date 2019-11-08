@@ -16,28 +16,68 @@ export class NotesServiceService {
 
   private BASE_URL = "http://localhost:8080";
   private NOTES_ALL = `${this.BASE_URL}\\notes\\all`;
-  private NOTES_BY_NOTEBOOK_URL = `${this.BASE_URL}\\notes\\notebook`; // id
+  private NOTES_BY_NOTEBOOK_URL = `${this.BASE_URL}\\notes\\notebook\\`; // id
   private NOTES_BY_ID_URL = `${this.BASE_URL}\\notes\\byid`; // id
+  private POST_NEW_NOTE_URL = `${this.BASE_URL}\\notes`;
+  private DELETE_NOTE_URL = `${this.BASE_URL}\\notes\\`;
 
 
   constructor(private http: HttpClient) { }
 
+
+
+
+
+
+
+
+
   getNotesByNotebook(notebookId: string): Observable<Notes[]> {
-      return this.http.get<Notes[]>(this.NOTES_BY_ID_URL + notebookId);
+      return this.http.get<Notes[]>(this.NOTES_BY_NOTEBOOK_URL + notebookId);
   }
+
+
+
+
+
+ deleteNote(noteId: string): Observable<any> {
+   return this.http.delete(this.DELETE_NOTE_URL + noteId);
+ }
+
+
+
+
+
+
+
   getAllNotes(): Observable<Notes[]> {
     console.log('NOTE SERVICE ' + this.NOTES_ALL);
     return this.http.get<Notes[]>(this.NOTES_ALL);
   }
 
-/*getAllNotebooks() : Observable<Notebook[]> {
-  console.log('URL ' + this.ALL_NOTEBOOKS);
-return this.http.get<Notebook[]>(this.ALL_NOTEBOOKS);
-}*/
+    saveNote(note: Notes): Observable<Notes> {
+    return this.http.post<Notes>(this.POST_NEW_NOTE_URL, note);
+    }
+
 
 }
-/*
-getAllNotebooks() : Observable<Notebook[]> {
-  console.log('URL ' + this.ALL_NOTEBOOKS);
-return this.http.get<Notebook[]>(this.ALL_NOTEBOOKS);
-}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

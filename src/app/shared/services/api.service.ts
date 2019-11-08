@@ -11,7 +11,7 @@ export class ApiService {
 
   private BASE_URL = "http://localhost:8080";
 
-  private ALL_NOTEBOOKS = `${this.BASE_URL}\\notebooks\\all`;
+  public ALL_NOTEBOOKS = `${this.BASE_URL}\\notebooks\\all`;
   private SEND_FEEDBACK_URL = `${this.BASE_URL}\\feedback`;
   private SAVE_UPDATE_NOTEBOOK = `${this.BASE_URL}\\notebooks`;
   private DELETE_NOTEBOOK_URL = `${this.BASE_URL}\\notebooks\\`;

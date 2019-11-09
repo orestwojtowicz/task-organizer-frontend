@@ -1,12 +1,35 @@
-import { TestBed } from '@angular/core/testing';
+/*
+import {getTestBed, TestBed} from '@angular/core/testing';
 
 import { NotesServiceService } from './notes-service.service';
+import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
+
+
+
 
 describe('NotesServiceService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  let httpMock: HttpTestingController;
+  let noteService: NotesServiceService;
 
-  it('should be created', () => {
-    const service: NotesServiceService = TestBed.get(NotesServiceService);
-    expect(service).toBeTruthy();
+  beforeEach(() => TestBed.configureTestingModule({
+          imports:[HttpClientTestingModule],
+          providers: [NotesServiceService]
+
+
+  }));
+
+    httpMock = getTestBed().get(HttpClientTestingModule);
+    noteService = getTestBed().get(NotesServiceService);
+
+  it('it is created', function() {
+    expect(noteService).toBeTruthy();
   });
+
+
+  it
+
+
 });
+
+
+*/

@@ -28,10 +28,6 @@ export class NotesServiceService {
 
 
 
-
-
-
-
   getNotesByNotebook(notebookId: string): Observable<Notes[]> {
       return this.http.get<Notes[]>(this.NOTES_BY_NOTEBOOK_URL + notebookId);
   }
